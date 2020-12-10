@@ -42,15 +42,15 @@
 
 
 
-        createPlatform(401, 251);
+        createPlatform(10, 570);
 
-        createPlatform(450, 300);
+        createPlatform(300, 400);
 
-        createPlatform(500, 340);
+        createPlatform(700, 600);
 
-        createPlatform(520, 350, 0.4);
+        createPlatform(150, 20);
 
-        createPlatform(420, 270);
+        createPlatform(700, 100);
 
 
         

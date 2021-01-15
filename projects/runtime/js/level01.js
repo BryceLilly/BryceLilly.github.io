@@ -19,9 +19,17 @@ var level01 = function (window) {
                 { "type": "sawblade", "x": 400, "y": groundY },
                 { "type": "sawblade", "x": 600, "y": groundY },
                 { "type": "sawblade", "x": 900, "y": groundY },
-                {type: 'myObstacle', x:100, y:200}
+                { type: 'myObstacle', x:100, y:200},
+                { type: 'enemy', x: 400, y: groundY-50},
+                { type: 'enemy', x: 800, y: groundY-50},
+                { type: 'enemy', x: 1200, y: groundY-50},
+                { type: 'reward', x: 2000, y: groundY-125},
+                { type: 'reward', x: 3000, y: groundY-125},
+                { type: 'reward', x: 1000, y: groundY-125},
+
             ]
         };
+
         window.levelData = levelData;
         // set this to true or false depending on if you want to see hitzones
         game.setDebugMode(true);
@@ -30,34 +38,61 @@ var level01 = function (window) {
 
         // ToDo 9
 
-        var firstGameItemObject = levelData.gameItems[0];
-            var firstX = firstGameItemObject.x;
-            var firstY = firstGameItemObject.y;
-                createSawBlade(1200, 210);
-                createSawBlade(900, 310);
-                createSawBlade(1050, 210);
-                createSawBlade(700, 310);
+            
 
-                createMyObstacle(500, 310);
+             
 
-                createEnemy(400,groundY-50);
-                createEnemy(800,groundY-50);
-                createEnemy(1200,groundY-50);
-
-                createReward(2000,groundY-125);
-                createReward(3000,groundY-125);
-                createReward(1000,groundY-125)
+             
 
 
+                var gameItems = levelData.gameItems;
 
-                 for (var i = 0; i < gameItems.length; i++) {
-                 var eachElement = gameItems[i];
+                for (var i = 0; i < gameItems.length; i++) {
+                    var gameItem = gameItems[i];
+                    var type = gameItem.type;
+                    var x = gameItem.x;
+                    var y = gameItem.y;
+
+
+                    if (type === "sawblade"){
+                       
+                        createSawBlade(x, y);
+                    }                  
+                
+                    else if (type === "myObstacle"){
+                        createMyObstacle(x, y);
+                    }                     
+
+                    else if (type === 'enemy'){
+                        createEnemy(x, y);
+                    }
+
+                    else if (type === 'reward'){
+                        createReward(x, y);
+                    }
 
 
 
-                 }
+
+                    console.log(gameItem)
+
+
+                }
     
+                // createSawBlade(1200, 210);
+                // createSawBlade(900, 310);
+                // createSawBlade(1050, 210);
+                // createSawBlade(700, 310);
 
+                // createMyObstacle(500, 310);
+
+                // createEnemy(400,groundY-50);
+                // createEnemy(800,groundY-50);
+                // createEnemy(1200,groundY-50);
+
+                // createReward(2000,groundY-125);
+                // createReward(3000,groundY-125);
+                // createReward(1000,groundY-125)
 
         // End of ToDo 9
 
